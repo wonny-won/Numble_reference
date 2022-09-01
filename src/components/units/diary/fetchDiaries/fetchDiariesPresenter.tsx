@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import LayoutSubTitle from "../../commons/layoutSubtitle";
-import * as Diary from "./diaryStyles";
+import LayoutSubTitle from "../../../commons/layoutSubtitle";
+import * as Diary from "./fetchDiariesStyles";
 
 const FETCH_BOARDS = gql`
   query fetchBoards($page: Int) {
@@ -15,7 +15,7 @@ const FETCH_BOARDS = gql`
   }
 `;
 
-export default function DiaryPresenter() {
+export default function FetchDiariesPresenter() {
   const { data } = useQuery(FETCH_BOARDS);
   const router = useRouter();
 

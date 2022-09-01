@@ -37,4 +37,5 @@ export const BoardClick = styled.div`
   font-weight: 500;
   margin-top: 5px;
   align-self: flex-end;
+  cursor: pointer;
 `;

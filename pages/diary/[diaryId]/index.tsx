@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import LayoutSubTitle from "../../../src/components/commons/layoutSubtitle";
+import FetchDiaryContainer from "../../../src/components/units/diary/fetchDiary/fetchDiaryContainer";
 
 const FETCH_BOARD = gql`
   query fetchBoard($number: Int) {
@@ -12,7 +14,7 @@ const FETCH_BOARD = gql`
     }
   }
 `;
-const DiaryDetail = () => {
+const FetchDiaryPage = () => {
   const router = useRouter();
 
   const { data } = useQuery(FETCH_BOARD, {
@@ -20,7 +22,12 @@ const DiaryDetail = () => {
   });
 
   console.log(data);
-  return <> 다이어리 상세 </>;
+  return (
+    <>
+      <LayoutSubTitle mainTitle="Diary" subTitle="Today diary" />
+      <FetchDiaryContainer />
+    </>
+  );
 };
 
-export default DiaryDetail;
+export default FetchDiaryPage;
