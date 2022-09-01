@@ -11,10 +11,10 @@ interface IPropsLayout {
 export default function Layout(props: IPropsLayout) {
   const router = useRouter();
   const titleMenu = [
-    { src: "/images/name.png", title: "이름" },
-    { src: "/images/phone.png", title: "phone" },
-    { src: "/images/email.png", title: "E-mail" },
-    { src: "/images/star.png", title: "인스타그램" },
+    { src: "images/name.png", title: "이름" },
+    { src: "images/phone.png", title: "phone" },
+    { src: "images/email.png", title: "E-mail" },
+    { src: "images/star.png", title: "인스타그램" },
   ];
   const sideMenu = [
     { address: "/home", title: "홈", position: "103px" },

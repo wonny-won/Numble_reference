@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-image: url("/images/cyworldBackground.png");
+  background-image: url("images/cyworldBackground.png");
   width: 1204px;
   height: 600px;
   padding: 20px 0px 0px 20px;
 `;
 export const InnerWrapper = styled.div`
-  background-image: url("/images/cyworldInnerBackground.png");
+  background-image: url("images/cyworldInnerBackground.png");
   width: 808px;
   height: 544px;
   padding: 26px 48px 0px 32px;
