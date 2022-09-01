@@ -68,6 +68,7 @@ export const RightBody = styled.div`
   border-radius: 10px;
   border: 1px solid black;
   position: relative;
+  padding: 20px 30px 20px 30px;
 `;
 export const LeftBody = styled.div`
   width: 208px;
