@@ -1,34 +1,40 @@
 import LayoutSubTitle from "../../commons/layoutSubtitle";
 import * as Styled from "./gmaeStyles";
-export default function GamePresenter() {
+export default function GamePresenter(props) {
   return (
     <>
       <Styled.Wrapper>
         <LayoutSubTitle mainTitle="GAME" subTitle="TODAY CHOICE" />
         <Styled.ContainerWrapper>
           <Styled.Container>
-            <div>이미지</div>
-            <div>끝말잇기</div>
-            <div>제시어</div>
+            <img src="images/train.png"></img>
+            <Styled.GameMainTitle>끝말잇기</Styled.GameMainTitle>
+            <Styled.GameSubTitle>
+              제시어 : {props.startWord}
+            </Styled.GameSubTitle>
             <div>
-              <input type="text" /> <button>검색</button>
+              <Styled.GameInput
+                type="text"
+                placeholder="단어를 입력하세요."
+                onChange={props.onChangeWord}
+              />{" "}
+              <Styled.GameButton>검색</Styled.GameButton>
             </div>
-            <div>결과!</div>
+            <Styled.GameResult>결과!</Styled.GameResult>
           </Styled.Container>
           <Styled.Container>
-            <div>이미지</div>
-            <div>LOTTO</div>
-            <div>버튼을 누르세요</div>
+            <img src="images/lotto.png"></img>
+            <Styled.GameMainTitle>LOTTO</Styled.GameMainTitle>
+            <Styled.GameSubTitle>버튼을 누르세요</Styled.GameSubTitle>
+            <Styled.LottoNumberWrapper>
+              {props.lottoNumbers.map((el: number, i: number) => (
+                <Styled.LottoNumbers key={i}>{el}</Styled.LottoNumbers>
+              ))}
+            </Styled.LottoNumberWrapper>
             <div>
-              <span>3</span>
-              <span>5</span>
-              <span>10</span>
-              <span>24</span>
-              <span>30</span>
-              <span>34</span>
-            </div>
-            <div>
-              <button>Button</button>
+              <Styled.LottoButton onClick={props.onClickLotto}>
+                Button
+              </Styled.LottoButton>
             </div>
           </Styled.Container>
         </Styled.ContainerWrapper>
