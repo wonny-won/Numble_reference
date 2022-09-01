@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import LayoutSubTitle from "../../commons/layoutSubtitle";
 import * as Diary from "./diaryStyles";
 
 const FETCH_BOARDS = gql`
@@ -23,6 +24,7 @@ export default function DiaryPresenter() {
   };
   return (
     <Diary.DiaryWrapper>
+      <LayoutSubTitle mainTitle="Diary" subTitle="Today diary" />
       {data?.fetchBoards.slice(0, 4).map((el: any, index: any) => (
         <>
           <Diary.Wrapper key={el}>

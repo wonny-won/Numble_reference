@@ -6,6 +6,8 @@ export const DiaryWrapper = styled.div`
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 83px;
+  margin-bottom: 9px;
 `;
 
 export const BoardBox = styled.div`
@@ -13,7 +15,7 @@ export const BoardBox = styled.div`
   border: 1px solid #dddddd;
   display: flex;
   flex-direction: column;
-  padding: 17px 27px 10px 25px;
+  padding: 17px 27px 5px 25px;
 `;
 
 export const BoardDate = styled.div`
