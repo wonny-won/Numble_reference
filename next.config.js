@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://junejae1625.github.io/Numble_reference"
+      : "",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
