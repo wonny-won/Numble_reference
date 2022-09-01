@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   width: 100%;
   height: 35px;
   border-bottom: 1px solid black;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
+  line-height: 35px;
 `;
 const MainTitleSpan = styled.span`
   color: #55b2d4;
