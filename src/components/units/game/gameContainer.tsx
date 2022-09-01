@@ -1,10 +1,12 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import GamePresenter from "./gamePresenter";
 
 export default function GameContainer() {
   const [startWord, setStartWord] = useState("코드캠프");
+  const [changeWord, setChangeWord] = useState("");
+  const [result, setResult] = useState("결과!");
   const [lottoNumbers, setLottoNumbers] = useState([3, 5, 10, 24, 30, 34]);
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const onClickLotto = () => {
     const result = [];
     while (result.length < 6) {
@@ -18,7 +20,18 @@ export default function GameContainer() {
   };
 
   const onChangeWord = (event: ChangeEvent<HTMLInputElement>) => {
-    setStartWord(event.target.value);
+    setChangeWord(event.target.value);
+  };
+  const onClickSearch = () => {
+    if (startWord[startWord.length - 1] === changeWord[0]) {
+      setStartWord(changeWord);
+      setResult("정답입니다!");
+      inputRef.current?.value = "";
+    } else {
+      setChangeWord("");
+      setResult("오답입니다!");
+      inputRef.current?.value = "";
+    }
   };
 
   return (
@@ -27,6 +40,9 @@ export default function GameContainer() {
       onChangeWord={onChangeWord}
       lottoNumbers={lottoNumbers}
       onClickLotto={onClickLotto}
+      onClickSearch={onClickSearch}
+      result={result}
+      inputRef={inputRef}
     />
   );
 }
