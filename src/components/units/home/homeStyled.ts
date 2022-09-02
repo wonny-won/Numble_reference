@@ -60,3 +60,19 @@ export const Span = styled.span`
 export const BGMWrap = styled.div`
     display: flex;
 `
+export const BGMTitle = styled.div`
+    border-top: 2.5px solid #999999;
+    border-bottom: 2.5px solid #999999;
+    background-color: #eee;
+`
+export const Span1 = styled.span`
+    width : 10%;
+    padding: 0 10px
+`
+export const Span2 = styled.span`
+    width: 65%;
+    padding: 0 100px 0 10px;
+`
+export const Span3 = styled.span`
+    width: 15%;
+`

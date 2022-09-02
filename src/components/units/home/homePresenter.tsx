@@ -33,7 +33,7 @@ export default function HomePresenter (props) {
             <S.Title style={{marginTop:"25px"}}> 추억의 BGM</S.Title>
             <S.SubTitle style={{marginTop:"25px"}}> TODAY CHOICE </S.SubTitle>
         </S.BGMWrap>
-        <div></div>
+        <S.BGMTitle> <S.Span1><input type='checkbox'/></S.Span1> <S.Span1>번호</S.Span1> <S.Span2>곡명</S.Span2> <S.Span3>아티스트</S.Span3></S.BGMTitle>
         </>
     )
 }
