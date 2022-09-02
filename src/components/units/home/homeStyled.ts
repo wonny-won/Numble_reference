@@ -57,3 +57,6 @@ export const Span = styled.span`
     color : #55B2D4;
     margin-left : 7px;
 `
+export const BGMWrap = styled.div`
+    display: flex;
+`

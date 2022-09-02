@@ -29,10 +29,10 @@ export default function HomePresenter (props) {
                 </S.LineWrap>
             </S.MainInfo>
         </S.HomeWrap>
-        <div>
+        <S.BGMWrap>
             <S.Title style={{marginTop:"25px"}}> 추억의 BGM</S.Title>
-            <div> TODAY CHOICE </div>
-        </div>
+            <S.SubTitle style={{marginTop:"25px"}}> TODAY CHOICE </S.SubTitle>
+        </S.BGMWrap>
         <div></div>
         </>
     )
