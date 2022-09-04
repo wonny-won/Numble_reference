@@ -1,4 +1,4 @@
-import WriteDiaryPresenter from "./writediaryPresenter";
+import WriteDiaryPresenter from "./writeDiaryPresenter";
 
 const WriteDiaryContainer = () => {
   return <WriteDiaryPresenter />;

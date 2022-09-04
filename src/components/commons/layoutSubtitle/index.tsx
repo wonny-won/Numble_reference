@@ -37,6 +37,13 @@ const WriteDiaryBtn = styled.button`
   border: none;
   border-radius: 4px;
   margin-left: auto;
+  cursor: pointer;
+`;
+
+export const WriteTitle = styled.div`
+  color: #55b2d4;
+  font-size: 13px;
+  font-weight: 700;
 `;
 
 const LayoutSubTitle = (props: IPropsLayoutSubTitle) => {
@@ -45,10 +52,13 @@ const LayoutSubTitle = (props: IPropsLayoutSubTitle) => {
   const onClickWrite = () => {
     router.push("/diary/new");
   };
+
   return (
     <Wrapper>
       <MainTitleSpan>{props.mainTitle}</MainTitleSpan>
       <SubTitleSpan>{props.subTitle}</SubTitleSpan>
+      {router.asPath === "/diary/new" && <WriteTitle>| 글 등록</WriteTitle>}
+      {router.asPath.includes("edit") && <WriteTitle>| 글 수정</WriteTitle>}
       {props.subTitle === "TODAY STORY" ? (
         <WriteDiaryBtn onClick={onClickWrite}>다이어리 작성</WriteDiaryBtn>
       ) : null}

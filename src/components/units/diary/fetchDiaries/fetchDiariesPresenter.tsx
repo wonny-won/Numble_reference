@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import LayoutSubTitle from "../../../commons/layoutSubtitle";
 
 import * as Diary from "./fetchDiariesStyles";
@@ -17,7 +18,11 @@ const FETCH_BOARDS = gql`
 `;
 
 export default function FetchDiariesPresenter() {
-  const { data } = useQuery(FETCH_BOARDS);
+  useEffect(() => {
+    refetch({ page: 1 });
+  }, []);
+
+  const { data, refetch } = useQuery(FETCH_BOARDS);
   const router = useRouter();
 
   const onClickDetail = (event: any) => {
@@ -28,7 +33,7 @@ export default function FetchDiariesPresenter() {
       <LayoutSubTitle mainTitle="Diary" subTitle="TODAY STORY" />
       {data?.fetchBoards.slice(0, 4).map((el: any, index: any) => (
         <>
-          <Diary.Wrapper key={el}>
+          <Diary.Wrapper key={el.number}>
             <Diary.BoardBox>
               <Diary.BoardDate>{el.createdAt.slice(0, 10)}</Diary.BoardDate>
               <Diary.BoardTitle>제목 : {el.title}</Diary.BoardTitle>

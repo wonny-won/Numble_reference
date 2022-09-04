@@ -55,6 +55,7 @@ export const EditBtn = styled.button`
   font-size: 12px;
   color: #ffffff;
   margin-right: 28px;
+  cursor: pointer;
 `;
 
 export const DeleteBtn = styled.button`
@@ -64,4 +65,13 @@ export const DeleteBtn = styled.button`
   background-color: #d9d9d9;
   font-size: 12px;
   color: #ffffff;
+  cursor: pointer;
+`;
+
+export const ListBtn = styled.div`
+  color: #666666;
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
 `;

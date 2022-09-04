@@ -1,9 +1,10 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import LayoutSubTitle from "../../../commons/layoutSubtitle";
 import * as Diary from "./fetchDiaryStyles";
 
-const FETCH_BOARD = gql`
+export const FETCH_BOARD = gql`
   query fetchBoard($number: Int) {
     fetchBoard(number: $number) {
       writer
@@ -23,8 +24,11 @@ const DELETE_BOARD = gql`
 `;
 
 const FetchDiaryPresenter = () => {
+  useEffect(() => {
+    refetch({ number: Number(router.query.diaryId) });
+  }, []);
   const router = useRouter();
-  const { data } = useQuery(FETCH_BOARD, {
+  const { data, refetch } = useQuery(FETCH_BOARD, {
     variables: { number: Number(router.query.diaryId) },
   });
   const [deleteBoard] = useMutation(DELETE_BOARD);
@@ -41,18 +45,26 @@ const FetchDiaryPresenter = () => {
     }
   };
 
+  const onClickList = () => {
+    router.push("/diary");
+  };
+  const onClickEdit = () => {
+    router.push(`/diary/${router.query.diaryId}/edit`);
+  };
+
   return (
     <>
       <LayoutSubTitle mainTitle="Diary" subTitle="" />
       <Diary.Wrapper>
-        <Diary.Date>{data?.fetchBoard.createdAt.slice(0, 10)}</Diary.Date>
-        <Diary.Title>{data?.fetchBoard.title}</Diary.Title>
-        <Diary.Contents>{data?.fetchBoard.contents}</Diary.Contents>
+        <Diary.Date>{data?.fetchBoard?.createdAt.slice(0, 10)}</Diary.Date>
+        <Diary.Title>{data?.fetchBoard?.title}</Diary.Title>
+        <Diary.Contents>{data?.fetchBoard?.contents}</Diary.Contents>
       </Diary.Wrapper>
       <Diary.Footer>
-        <Diary.EditBtn>수정하기</Diary.EditBtn>
+        <Diary.EditBtn onClick={onClickEdit}>수정하기</Diary.EditBtn>
         <Diary.DeleteBtn onClick={onClickDelete}>삭제하기</Diary.DeleteBtn>
       </Diary.Footer>
+      <Diary.ListBtn onClick={onClickList}>&lt; 목록으로</Diary.ListBtn>
     </>
   );
 };
