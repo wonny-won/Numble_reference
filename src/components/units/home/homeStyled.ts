@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { emotionProps } from "./homeTypes";
 
 export const TitleWrap = styled.div`
     display: flex;
@@ -59,20 +60,39 @@ export const Span = styled.span`
 `
 export const BGMWrap = styled.div`
     display: flex;
+    align-items: center;
+    height: 20px;
+    margin-top:10px;
 `
 export const BGMTitle = styled.div`
     border-top: 2.5px solid #999999;
     border-bottom: 2.5px solid #999999;
     background-color: #eee;
+    margin-top : 10px;
+    display: flex;
+    align-items: center;
 `
-export const Span1 = styled.span`
-    width : 10%;
-    padding: 0 10px
+export const BGMItem = styled.div`
+    display: flex;
+    border-bottom: dotted 1px #999999;
+    align-items: center;
 `
-export const Span2 = styled.span`
-    width: 65%;
-    padding: 0 100px 0 10px;
+export const Span1 = styled.div`
+    width : 50px;
+    text-align: center;
+    font-size: 12px;
+    color: ${(props:emotionProps)=>(props.isTitle ? "#99999" : "#0F465E")};
+    font-weight: ${(props:emotionProps)=>(props.isTitle && "600")};
 `
-export const Span3 = styled.span`
-    width: 15%;
+export const Span2 = styled.div`
+    width: 220px;   
+    padding-left: 10px;
+    color: ${(props:emotionProps)=>(props.isTitle ? "#99999" : "#0F465E")};
+    font-size: 12px;
+    font-weight: ${(props:emotionProps)=>(props.isTitle && "600")};
+`
+export const Span3 = styled.div`
+    color: ${(props:emotionProps)=>(props.isTitle ? "#99999" : "#0F465E")};
+    font-size: 12px;
+    font-weight: ${(props:emotionProps)=>(props.isTitle && "600")};
 `

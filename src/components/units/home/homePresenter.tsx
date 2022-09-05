@@ -1,6 +1,8 @@
 import * as S from './homeStyled'
+import { homePageProps } from './homeTypes'
 
-export default function HomePresenter (props) {
+export default function HomePresenter (props:homePageProps) {
+    const BGMItem = [{song: "눈의꽃", artist: "박효신"},{song: "사랑스러워", artist: "김종국"},{song: "내사람:Partner For Life", artist: "SG워너비"},{song: "Love Love Love", artist: "에픽하이"},{song: "애인있어요", artist: "이은미"},{song: "눈의꽃", artist: "박효신"},{song: "사랑스러워", artist: "김종국"},{song: "내사람:Partner For Life", artist: "SG워너비"},{song: "Love Love Love", artist: "에픽하이"},{song: "애인있어요", artist: "이은미"}]
     return(
         <>
         <S.TitleWrap>
@@ -30,10 +32,15 @@ export default function HomePresenter (props) {
             </S.MainInfo>
         </S.HomeWrap>
         <S.BGMWrap>
-            <S.Title style={{marginTop:"25px"}}> 추억의 BGM</S.Title>
-            <S.SubTitle style={{marginTop:"25px"}}> TODAY CHOICE </S.SubTitle>
+            <S.Title> 추억의 BGM</S.Title>
+            <S.SubTitle> TODAY CHOICE </S.SubTitle>
         </S.BGMWrap>
-        <S.BGMTitle> <S.Span1><input type='checkbox'/></S.Span1> <S.Span1>번호</S.Span1> <S.Span2>곡명</S.Span2> <S.Span3>아티스트</S.Span3></S.BGMTitle>
+        <S.BGMTitle> <S.Span1 isTitle={true}><input type='checkbox'/></S.Span1> <S.Span1 isTitle={true}>번호</S.Span1> <S.Span2 isTitle={true}>곡명</S.Span2> <S.Span3 isTitle={true}>아티스트</S.Span3></S.BGMTitle>
+        {
+            BGMItem.map((item,index)=>(
+                <S.BGMItem> <S.Span1 isTitle={false}><input type='checkbox'/></S.Span1> <S.Span1 isTitle={false}>{index+1}</S.Span1> <S.Span2 isTitle={false}>{item.song}</S.Span2> <S.Span3 isTitle={false}>{item.artist}</S.Span3></S.BGMItem> 
+            ))
+        }
         </>
     )
 }
