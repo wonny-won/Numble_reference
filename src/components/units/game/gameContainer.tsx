@@ -26,11 +26,15 @@ export default function GameContainer() {
     if (startWord[startWord.length - 1] === changeWord[0]) {
       setStartWord(changeWord);
       setResult("정답입니다!");
-      inputRef.current?.value = "";
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     } else {
       setChangeWord("");
       setResult("오답입니다!");
-      inputRef.current?.value = "";
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     }
   };
 
