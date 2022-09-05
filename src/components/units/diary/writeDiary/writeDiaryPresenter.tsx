@@ -1,43 +1,11 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import LayoutSubTitle from "../../../commons/layoutSubtitle";
 import { FETCH_BOARD } from "../fetchDiary/fetchDiaryPresenter";
+import { CREATE_BOARD, UPDATE_BOARD } from "./writeDiaryQueries";
 import * as Diary from "./writeDiaryStyles";
-
-export interface IMyVariables {
-  number: Number;
-  title: String;
-  contents: String;
-}
-
-const CREATE_BOARD = gql`
-  mutation createBoard($writer: String, $title: String, $contents: String) {
-    createBoard(writer: $writer, title: $title, contents: $contents) {
-      _id
-      number
-    }
-  }
-`;
-
-const UPDATE_BOARD = gql`
-  mutation updateBoard(
-    $number: Int
-    $writer: String
-    $title: String
-    $contents: String
-  ) {
-    updateBoard(
-      number: $number
-      writer: $writer
-      title: $title
-      contents: $contents
-    ) {
-      _id
-      number
-    }
-  }
-`;
+import { IMyVariables } from "./writeDiaryTypes";
 
 const WriteDiaryPresenter = () => {
   const [title, setTitle] = useState("");
