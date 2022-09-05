@@ -1,7 +1,6 @@
 import LayoutSubTitle from "../../commons/layoutSubtitle";
-import { IPropsGamePresenter } from "./gameTypes";
 import * as Styled from "./gmaeStyles";
-export default function GamePresenter(props: IPropsGamePresenter) {
+export default function GamePresenter(props) {
   return (
     <>
       <Styled.Wrapper>
@@ -15,16 +14,13 @@ export default function GamePresenter(props: IPropsGamePresenter) {
             </Styled.GameSubTitle>
             <div>
               <Styled.GameInput
-                ref={props.inputRef}
                 type="text"
                 placeholder="단어를 입력하세요."
                 onChange={props.onChangeWord}
               />{" "}
-              <Styled.GameButton onClick={props.onClickSearch}>
-                검색
-              </Styled.GameButton>
+              <Styled.GameButton>검색</Styled.GameButton>
             </div>
-            <Styled.GameResult>{props.result}</Styled.GameResult>
+            <Styled.GameResult>결과!</Styled.GameResult>
           </Styled.Container>
           <Styled.Container>
             <img src="images/lotto.png"></img>
