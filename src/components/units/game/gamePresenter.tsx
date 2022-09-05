@@ -1,6 +1,7 @@
 import LayoutSubTitle from "../../commons/layoutSubtitle";
+import { IPropsGamePresenter } from "./gameTypes";
 import * as Styled from "./gmaeStyles";
-export default function GamePresenter(props) {
+export default function GamePresenter(props: IPropsGamePresenter) {
   return (
     <>
       <Styled.Wrapper>
