@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, RefObject } from "react";
 
 export interface IPropsGamePresenter {
   startWord: string;
@@ -7,5 +7,5 @@ export interface IPropsGamePresenter {
   onClickLotto: () => void;
   onClickSearch: () => void;
   result: string;
-  //   inputRef: any;
+  inputRef: RefObject<HTMLInputElement>;
 }
