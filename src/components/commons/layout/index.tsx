@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { MouseEvent, ReactChild } from "react";
 import * as Styled from "../../units/layout/layoutStyles";
 import SideBar from "../layoutSidebar";
-import LayoutSideMenu from "../layoutsideMenu";
+import LayoutSideMenu from "../layoutSideMenu";
 
 interface IPropsLayout {
   children: ReactChild;
