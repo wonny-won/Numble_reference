@@ -35,21 +35,20 @@ export const HeaderLeftSpan = styled.span`
 `;
 export const HeaderCenter = styled.div`
   width: 340px;
-  height: 100%;
   color: #55b2d4;
   font-weight: 700;
   font-size: 16px;
   text-align: left;
-  line-height: 44px;
+  line-height: 60px;
 `;
 export const HeaderRight = styled.div`
   width: 100px;
   height: 100%;
   color: black;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 10px;
   text-align: right;
-  line-height: 44px;
+  line-height: 65px;
 `;
 export const HeaderRightSpan = styled.span`
   color: #ff6400;

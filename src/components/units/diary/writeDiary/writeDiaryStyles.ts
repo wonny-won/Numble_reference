@@ -16,15 +16,15 @@ export const Title = styled.input`
   border-radius: 3px;
   font-size: 3px;
 `;
-export const Contents = styled.input`
+export const Contents = styled.textarea`
   width: 100%;
   height: 248px;
   border: 1px solid #dddddd;
   margin-top: 14px;
+  padding-top: 2px;
   border-radius: 3px;
   font-size: 10px;
-  text-align: start;
-
+  resize: none;
   :focus {
     outline: none;
   }
