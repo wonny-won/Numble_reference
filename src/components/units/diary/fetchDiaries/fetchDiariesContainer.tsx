@@ -1,15 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { MouseEvent, useEffect } from "react";
+import { MouseEvent } from "react";
 import FetchDiariesPresenter from "./fetchDiariesPresenter";
 import { FETCH_BOARDS } from "./fetchDiariesQuery";
 
 export default function FetchDiariesContainer() {
-  useEffect(() => {
-    refetch({ page: 1 });
-  }, []);
-
-  const { data, refetch } = useQuery(FETCH_BOARDS);
+  const { data } = useQuery(FETCH_BOARDS, { fetchPolicy: "network-only" });
   const router = useRouter();
 
   const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {

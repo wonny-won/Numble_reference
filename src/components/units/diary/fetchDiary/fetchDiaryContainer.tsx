@@ -1,16 +1,14 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import FetchDiaryPresenter from "./fetchDiaryPresenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./fetchDiaryQueries";
 
 const FetchDiaryContainer = () => {
-  useEffect(() => {
-    refetch({ number: Number(router.query.diaryId) });
-  }, []);
   const router = useRouter();
-  const { data, refetch } = useQuery(FETCH_BOARD, {
+  const { data } = useQuery(FETCH_BOARD, {
     variables: { number: Number(router.query.diaryId) },
+    fetchPolicy: "network-only",
   });
   const [deleteBoard] = useMutation(DELETE_BOARD);
 
