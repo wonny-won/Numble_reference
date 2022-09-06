@@ -1,6 +1,7 @@
 import LayoutSubTitle from "../../commons/layoutSubtitle";
 import { IPropsGamePresenter } from "./gameTypes";
 import * as Styled from "./gmaeStyles";
+import { v4 as uuidv4 } from "uuid";
 export default function GamePresenter(props: IPropsGamePresenter) {
   return (
     <>
@@ -15,21 +16,24 @@ export default function GamePresenter(props: IPropsGamePresenter) {
             </Styled.GameSubTitle>
             <div>
               <Styled.GameInput
+                ref={props.inputRef}
                 type="text"
                 placeholder="단어를 입력하세요."
                 onChange={props.onChangeWord}
-              />{" "}
-              <Styled.GameButton>검색</Styled.GameButton>
+              />
+              <Styled.GameButton onClick={props.onClickSearch}>
+                입력
+              </Styled.GameButton>
             </div>
-            <Styled.GameResult>결과!</Styled.GameResult>
+            <Styled.GameResult>{props.result}</Styled.GameResult>
           </Styled.Container>
           <Styled.Container>
             <img src="images/lotto.png"></img>
             <Styled.GameMainTitle>LOTTO</Styled.GameMainTitle>
             <Styled.GameSubTitle>버튼을 누르세요</Styled.GameSubTitle>
             <Styled.LottoNumberWrapper>
-              {props.lottoNumbers.map((el: number, i: number) => (
-                <Styled.LottoNumbers key={i}>{el}</Styled.LottoNumbers>
+              {props.lottoNumbers.map((el: number) => (
+                <Styled.LottoNumbers key={uuidv4()}>{el}</Styled.LottoNumbers>
               ))}
             </Styled.LottoNumberWrapper>
             <div>

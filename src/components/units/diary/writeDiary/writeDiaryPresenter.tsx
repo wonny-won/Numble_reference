@@ -23,7 +23,6 @@ const WriteDiaryPresenter = (props: IPropsWriteDiaryUI) => {
             props.data?.fetchBoard ? props.onClickUpdate : props.onClickCreate
           }
         >
-          {" "}
           {props.data?.fetchBoard ? "수정하기" : "등록하기"}
         </Diary.CreateBtn>
         <Diary.CancelBtn onClick={props.onClickCancel}>

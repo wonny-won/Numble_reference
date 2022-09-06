@@ -47,6 +47,7 @@ export const GameInput = styled.input`
   padding-left: 8px;
   color: #555;
   outline: none;
+  margin-right: 4px;
   ::placeholder {
     font-size: 11px;
   }

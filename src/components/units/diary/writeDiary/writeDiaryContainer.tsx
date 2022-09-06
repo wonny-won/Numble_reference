@@ -26,19 +26,26 @@ const WriteDiaryContainer = () => {
   };
 
   const onClickCreate = async () => {
+    if (!title) {
+      alert("제목을 입력하세요");
+      return;
+    }
+    if (!contents) {
+      alert("내용을 입력하세요");
+      return;
+    }
     try {
-      await createBoard({
+      const result = await createBoard({
         variables: {
-          writer: "Numble_mento",
+          writer: "본인의 이름을 넣어주세요",
           title,
           contents,
         },
       });
-
       alert("다이어리 등록 성공!");
-      router.push("/diary");
+      router.push(`/diary/${result.data?.createBoard.number}`);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 
@@ -47,22 +54,17 @@ const WriteDiaryContainer = () => {
   };
 
   const onClickUpdate = async () => {
-    const myVariables: IMyVariables = {
+    const variables: IMyVariables = {
       number: Number(router.query.diaryId),
       title,
       contents,
     };
 
-    if (title === "") {
-      myVariables.title = data?.fetchBoard?.title;
-    }
-    if (contents === "") {
-      myVariables.contents = data?.fetchBoard?.contents;
-    }
-
+    if (!title) variables.title = data?.fetchBoard?.title;
+    if (!contents) variables.contents = data?.fetchBoard?.contents;
     try {
       await updateBoard({
-        variables: myVariables,
+        variables,
       });
       alert("게시물 수정에 성공했습니다!");
       router.push(`/diary/${router.query.diaryId}`);

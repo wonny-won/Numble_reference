@@ -1,4 +1,4 @@
-import WriteDiaryContainer from "../../../src/components/units/diary/writeDiary/writediaryContainer";
+import WriteDiaryContainer from "../../../src/components/units/diary/writeDiary/writeDiaryContainer";
 
 const WriteDiaryPage = () => {
   return <WriteDiaryContainer />;

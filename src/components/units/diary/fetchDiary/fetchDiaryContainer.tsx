@@ -1,16 +1,28 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import {
+  Mutation,
+  MutationDeleteBoardArgs,
+  Query,
+  QueryFetchBoardArgs,
+} from "../../../../commons/types/generated/types";
 
 import FetchDiaryPresenter from "./fetchDiaryPresenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./fetchDiaryQueries";
 
 const FetchDiaryContainer = () => {
   const router = useRouter();
-  const { data } = useQuery(FETCH_BOARD, {
-    variables: { number: Number(router.query.diaryId) },
-    fetchPolicy: "network-only",
-  });
-  const [deleteBoard] = useMutation(DELETE_BOARD);
+  const { data } = useQuery<Pick<Query, "fetchBoard">, QueryFetchBoardArgs>(
+    FETCH_BOARD,
+    {
+      variables: { number: Number(router.query.diaryId) },
+      fetchPolicy: "network-only",
+    }
+  );
+  const [deleteBoard] = useMutation<
+    Pick<Mutation, "deleteBoard">,
+    MutationDeleteBoardArgs
+  >(DELETE_BOARD);
 
   const onClickDelete = async () => {
     try {
@@ -20,7 +32,7 @@ const FetchDiaryContainer = () => {
       alert("삭제 성공 !");
       router.push("/diary");
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) alert(error.message);
     }
   };
 

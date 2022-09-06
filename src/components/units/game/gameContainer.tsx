@@ -22,6 +22,7 @@ export default function GameContainer() {
   const onChangeWord = (event: ChangeEvent<HTMLInputElement>) => {
     setChangeWord(event.target.value);
   };
+
   const onClickSearch = () => {
     if (startWord[startWord.length - 1] === changeWord[0]) {
       setStartWord(changeWord);
@@ -32,9 +33,6 @@ export default function GameContainer() {
     } else {
       setChangeWord("");
       setResult("오답입니다!");
-      if (inputRef.current) {
-        inputRef.current.value = "";
-      }
     }
   };
 

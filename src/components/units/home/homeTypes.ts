@@ -1,13 +1,10 @@
-import { HTMLAttributes } from "react";
+import { MouseEvent } from "react";
+
 export interface homePageProps {
-    datalist: any[];
-    onClickDataList: () => void;
+  datalist: any[];
+  onClickDataList: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface emotionProps {
-    isTitle: boolean;
-}
-
-export interface DiaryWrapProps {
-    title : any;
+  isTitle: boolean;
 }
