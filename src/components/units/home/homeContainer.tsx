@@ -21,7 +21,6 @@ export default function HomeContainer () {
         // 이부분은 아름님이 상세페이지를 다 만들어주시면 바꾸겠습니다.
         router.push('/')
     }
-    console.log(datalist)
     return <HomePresenter datalist={datalist}
                           onClickDataList={onClickDataList}/>
 }

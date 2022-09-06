@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-
+import { HTMLAttributes } from "react";
 export interface homePageProps {
     datalist: any[];
     onClickDataList: () => void;
@@ -7,4 +6,8 @@ export interface homePageProps {
 
 export interface emotionProps {
     isTitle: boolean;
+}
+
+export interface DiaryWrapProps {
+    title : any;
 }
