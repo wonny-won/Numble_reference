@@ -12,8 +12,8 @@ export default function HomePresenter (props:homePageProps) {
         <S.HomeWrap>
             <div>
             {
-                props.datalist && props.datalist.map((item:any)=>(
-                    <S.DiaryListWrap key={item?.number}>
+                props.datalist && props.datalist.map((item:any,index)=>(
+                    <S.DiaryListWrap key={index} title={item?.title.length}>
                         <S.Tag src="/images/tag.svg"/>
                         <div onClick={props.onClickDataList}> {item?.title} </div>
                     </S.DiaryListWrap>
@@ -38,7 +38,7 @@ export default function HomePresenter (props:homePageProps) {
         <S.BGMTitle> <S.Span1 isTitle={true}><input type='checkbox'/></S.Span1> <S.Span1 isTitle={true}>번호</S.Span1> <S.Span2 isTitle={true}>곡명</S.Span2> <S.Span3 isTitle={true}>아티스트</S.Span3></S.BGMTitle>
         {
             BGMItem.map((item,index)=>(
-                <S.BGMItem> <S.Span1 isTitle={false}><input type='checkbox'/></S.Span1> <S.Span1 isTitle={false}>{index+1}</S.Span1> <S.Span2 isTitle={false}>{item.song}</S.Span2> <S.Span3 isTitle={false}>{item.artist}</S.Span3></S.BGMItem> 
+                <S.BGMItem key={index}> <S.Span1 isTitle={false}><input type='checkbox'/></S.Span1> <S.Span1 isTitle={false}>{index+1}</S.Span1> <S.Span2 isTitle={false}>{item.song}</S.Span2> <S.Span3 isTitle={false}>{item.artist}</S.Span3></S.BGMItem> 
             ))
         }
         </>

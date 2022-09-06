@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { emotionProps } from "./homeTypes";
+import { emotionProps,DiaryWrapProps } from "./homeTypes";
 
 export const TitleWrap = styled.div`
     display: flex;
@@ -24,7 +24,7 @@ export const HomeWrap = styled.div`
 export const DiaryListWrap = styled.div`
     width : 253px;
     padding: 3px;
-    font-size: 12px;
+    font-size: ${(props:DiaryWrapProps)=>(props?.title > 24 ? "8px":"12px")};
     font-weight: 400;
     display: flex;
     align-items: center;
