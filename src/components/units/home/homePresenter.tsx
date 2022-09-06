@@ -13,7 +13,7 @@ export default function HomePresenter (props:homePageProps) {
             <div>
             {
                 props.datalist && props.datalist.map((item:any,index)=>(
-                    <S.DiaryListWrap key={index} title={item?.title.length}>
+                    <S.DiaryListWrap key={index} >
                         <S.Tag src="/images/tag.svg"/>
                         <div onClick={props.onClickDataList}> {item?.title} </div>
                     </S.DiaryListWrap>

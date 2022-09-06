@@ -7,7 +7,3 @@ export interface homePageProps {
 export interface emotionProps {
     isTitle: boolean;
 }
-
-export interface DiaryWrapProps {
-    title : any;
-}
