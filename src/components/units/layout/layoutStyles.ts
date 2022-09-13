@@ -1,13 +1,17 @@
 import styled from "@emotion/styled";
 
+interface IPropsRightBody {
+  isDark: string;
+}
+
 export const Wrapper = styled.div`
-  background-image: url("/images/cyworldBackground.png");
+  background-image: url("images/cyworldBackground.png");
   width: 1204px;
   height: 600px;
   padding: 20px 0px 0px 20px;
 `;
 export const InnerWrapper = styled.div`
-  background-image: url("/images/cyworldInnerBackground.png");
+  background-image: url("images/cyworldInnerBackground.png");
   width: 808px;
   height: 544px;
   padding: 26px 48px 0px 32px;
@@ -35,21 +39,20 @@ export const HeaderLeftSpan = styled.span`
 `;
 export const HeaderCenter = styled.div`
   width: 340px;
-  height: 100%;
   color: #55b2d4;
   font-weight: 700;
   font-size: 16px;
   text-align: left;
-  line-height: 44px;
+  line-height: 60px;
 `;
 export const HeaderRight = styled.div`
   width: 100px;
   height: 100%;
   color: black;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 10px;
   text-align: right;
-  line-height: 44px;
+  line-height: 65px;
 `;
 export const HeaderRightSpan = styled.span`
   color: #ff6400;
@@ -62,12 +65,16 @@ export const BodyWrapper = styled.div`
 `;
 
 export const RightBody = styled.div`
+  @media (prefers-color-scheme: ${(props: IPropsRightBody) => props.isDark}) {
+    color: black;
+  }
   width: 516px;
   height: 435px;
   background-color: white;
   border-radius: 10px;
   border: 1px solid black;
   position: relative;
+  padding: 20px 30px 20px 30px;
 `;
 export const LeftBody = styled.div`
   width: 208px;

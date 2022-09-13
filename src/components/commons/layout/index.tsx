@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
-import { MouseEvent, ReactChild } from "react";
+import { MouseEvent, ReactChild, useEffect, useState } from "react";
 import * as Styled from "../../units/layout/layoutStyles";
 import SideBar from "../layoutSidebar";
 import LayoutSideMenu from "../layoutSideMenu";
+import { v4 as uuidv4 } from "uuid";
 
 interface IPropsLayout {
   children: ReactChild;
@@ -10,22 +11,29 @@ interface IPropsLayout {
 
 export default function Layout(props: IPropsLayout) {
   const router = useRouter();
+  const [isDark, setIsDark] = useState("dark");
   const titleMenu = [
-    { src: "/images/name.png", title: "이름" },
-    { src: "/images/phone.png", title: "phone" },
-    { src: "/images/email.png", title: "E-mail" },
-    { src: "/images/star.png", title: "인스타그램" },
+    { src: "images/name.png", title: "이름" },
+    { src: "images/phone.png", title: "phone" },
+    { src: "images/email.png", title: "E-mail" },
+    { src: "images/star.png", title: "인스타그램" },
   ];
   const sideMenu = [
-    { address: "/home", title: "홈", position: "103px" },
-    { address: "/game", title: "게임", position: "140px" },
-    { address: "/diary", title: "다이어리", position: "177px" },
+    { address: "/", title: "홈", position: "103px" },
+    { address: "game", title: "게임", position: "140px" },
+    { address: "diary", title: "다이어리", position: "177px" },
   ];
   const onClickPage = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target instanceof Element) {
       router.push(`${event.target.id}`);
     }
   };
+  useEffect(() => {
+    if (!window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setIsDark("light");
+    }
+    console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }, []);
 
   return (
     <>
@@ -54,25 +62,32 @@ export default function Layout(props: IPropsLayout) {
                 <Styled.HeaderLine></Styled.HeaderLine>
               </Styled.LeftBodyHeader>
               <Styled.LeftBodyMain>
-                {titleMenu.map((el, i) => (
-                  <LayoutSideMenu key={i} src={el.src} title={el.title} />
+                {titleMenu.map((el) => (
+                  <LayoutSideMenu
+                    key={uuidv4()}
+                    src={el.src}
+                    title={el.title}
+                  />
                 ))}
               </Styled.LeftBodyMain>
               <Styled.LeftBodyFooter>
                 <Styled.FooterTitle>오늘의 기분</Styled.FooterTitle>
                 <Styled.SelectBox>
                   <option>기쁨 😍</option>
-                  <option>우울 🥺</option>
+                  <option>우울 ☹️</option>
+                  <option>졸림 😴</option>
                 </Styled.SelectBox>
               </Styled.LeftBodyFooter>
             </Styled.LeftBody>
-            <Styled.RightBody>{props.children}</Styled.RightBody>
+            <Styled.RightBody isDark={isDark}>
+              {props.children}
+            </Styled.RightBody>
           </Styled.BodyWrapper>
         </Styled.InnerWrapper>
       </Styled.Wrapper>
-      {sideMenu.map((el, i) => (
+      {sideMenu.map((el) => (
         <SideBar
-          key={i}
+          key={uuidv4()}
           id={el.address}
           onClick={onClickPage}
           position={el.position}
