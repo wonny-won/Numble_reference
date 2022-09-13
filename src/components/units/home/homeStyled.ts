@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { emotionProps, DiaryWrapProps } from "./homeTypes";
+import { emotionProps } from "./homeTypes";
 
 export const TitleWrap = styled.div`
   display: flex;
