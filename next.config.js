@@ -5,7 +5,9 @@ const nextConfig = {
   swcMinify: true,
   generateBuildId: () => "numble_codecamp",
   exportPathMap: () => ({
-    game: { page: "/game" },
+    "/game": { page: "/game" },
+    "/": { page: "/" },
+    "/404": { page: "/404" },
   }),
 };
 
