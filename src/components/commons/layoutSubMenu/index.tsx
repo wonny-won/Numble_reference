@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export interface IPropsLayoutSideMenu {
   src: string;
-  title: string;
+  title?: string;
 }
 
 export const MainTitleWrapper = styled.div`
