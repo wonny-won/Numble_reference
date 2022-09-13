@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export interface IPropsLayoutSideMenu {
-  src: string;
+  src?: string;
   title: string;
 }
 
