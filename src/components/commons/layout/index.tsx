@@ -19,7 +19,7 @@ export default function Layout(props: IPropsLayout) {
     { src: "images/star.png", title: "인스타그램" },
   ];
   const sideMenu = [
-    { address: "home", title: "홈", position: "103px" },
+    { address: "/", title: "홈", position: "103px" },
     { address: "game", title: "게임", position: "140px" },
     { address: "diary", title: "다이어리", position: "177px" },
   ];

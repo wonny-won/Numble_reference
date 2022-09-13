@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true,
   swcMinify: true,
-  assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://junejae1625.github.io/Numble_reference"
-      : "",
-  // images: {
-  //   loader: "imgix",
-  //   path: "https://junejae1625.github.io/Numble_reference",
-  // },
+  generateBuildId: () => "numble_codecamp",
 };
 
 module.exports = nextConfig;
