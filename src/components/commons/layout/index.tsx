@@ -13,15 +13,15 @@ export default function Layout(props: IPropsLayout) {
   const router = useRouter();
   const [isDark, setIsDark] = useState("dark");
   const titleMenu = [
-    { src: "images/name.png", title: "이름" },
-    { src: "images/phone.png", title: "phone" },
-    { src: "images/email.png", title: "E-mail" },
-    { src: "images/star.png", title: "인스타그램" },
+    { src: "/images/name.png", title: "이름" },
+    { src: "/images/phone.png", title: "phone" },
+    { src: "/images/email.png", title: "E-mail" },
+    { src: "/images/star.png", title: "인스타그램" },
   ];
   const sideMenu = [
     { address: "/", title: "홈", position: "103px" },
-    { address: "game", title: "게임", position: "140px" },
-    { address: "diary", title: "다이어리", position: "177px" },
+    { address: "/game", title: "게임", position: "140px" },
+    { address: "/diary", title: "다이어리", position: "177px" },
   ];
   const onClickPage = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target instanceof Element) {
@@ -32,7 +32,6 @@ export default function Layout(props: IPropsLayout) {
     if (!window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setIsDark("light");
     }
-    console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
   }, []);
 
   return (
